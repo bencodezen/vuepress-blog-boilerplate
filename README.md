@@ -8,8 +8,6 @@ This is a basic template to use [VuePress](https://www.vuepress.vuejs.org) as yo
 
 ## Demo
 
-You're probably wondering if anyone is actually using this thing right? Well, no need to worry there, I definitely believe in "[eating your own dog food](https://en.wikipedia.org/wiki/Eating_your_own_dog_food)" and use it myself!
-
 - [BenCodeZen Blog](https://www.bencodezen.io)
 
 ## How to Use
@@ -77,3 +75,13 @@ A more thorough guide to come, but as far as a high level overview of the steps 
 1. Setup "Build & deploy" settings with the following settings:
     - **Build command**: `npm run build`
     - **Publish directory**: `public/
+
+## FAQs
+
+### Will this repo be updated?
+
+This repo was created based on what I'm doing for [my own blog](https://www.bencodezen.io), so any updates I make over there will be reflected here as well.
+
+### Where do I request a feature, file a bug, or ask a question?
+
+All you have to do is [create a new issue](https://gitlab.com/bencodezen/vuepress-blog/issues/new)!
