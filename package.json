@@ -1,5 +1,5 @@
 {
-	"name": "vuepress-blog-template",
+	"name": "vuepress-blog",
 	"description": "This is a basic template to use VuePress as your blogging platform",
 	"license": "MIT",
 	"scripts": {
