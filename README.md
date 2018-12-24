@@ -24,7 +24,7 @@ Navigate in your terminal to the desired directory where you want this project t
 
 ```bash
 # Clone the repo
-git clone git@gitlab.com:bencodezen/vuepress-blog-template.git
+git clone https://gitlab.com/bencodezen/vuepress-blog.git
 
 # Change directory into project
 cd vuepress-blog-template
