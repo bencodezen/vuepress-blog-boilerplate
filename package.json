@@ -1,0 +1,14 @@
+{
+	"name": "vuepress-blog-template",
+	"description": "This is a basic template to use VuePress as your blogging platform",
+	"license": "MIT",
+	"scripts": {
+		"dev": "vuepress dev src",
+		"build": "vuepress build src"
+	},
+	"dependencies": {},
+	"devDependencies": {
+		"vuepress": "^0.14.4",
+		"yaml-front-matter": "^4.0.0"
+	}
+}
