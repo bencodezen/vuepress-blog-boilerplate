@@ -12,6 +12,8 @@ This is a basic template to use [VuePress](https://www.vuepress.vuejs.org) as yo
 
 ## How to Use
 
+> A more detailed guide is in the works, but the following has been written as a stop gap for those who want to start playing around with this sooner rather than later.
+
 ### Getting Setup
 
 #### Requirement
