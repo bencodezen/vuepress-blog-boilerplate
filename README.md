@@ -6,6 +6,12 @@ This is a basic template to use [VuePress](https://www.vuepress.vuejs.org) as yo
 1. Only show the most recent posts with basic pagination
 1. Ability to search for posts
 
+## Demo
+
+You're probably wondering if anyone is actually using this thing right? Well, no need to worry there, I definitely believe in "[eating your own dog food](https://en.wikipedia.org/wiki/Eating_your_own_dog_food)" and use it myself!
+
+- [BenCodeZen Blog](https://www.bencodezen.io)
+
 ## How to Use
 
 ### Getting Setup
