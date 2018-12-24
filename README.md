@@ -74,7 +74,7 @@ A more thorough guide to come, but as far as a high level overview of the steps 
 1. Connect your blog repo through the create a new site wizard
 1. Setup "Build & deploy" settings with the following settings:
     - **Build command**: `npm run build`
-    - **Publish directory**: `public/
+    - **Publish directory**: `public/`
 
 ## FAQs
 
