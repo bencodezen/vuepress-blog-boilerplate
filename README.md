@@ -78,6 +78,10 @@ A more thorough guide to come, but as far as a high level overview of the steps 
 
 ## FAQs
 
+### Why VuePress?
+
+While it is true that there are plenty of blogging engines out there already optimized for blogging, I enjoyed the authoring experience of VuePress so much that I wanted to make a blog version of it while the core team works through their roadmap.
+
 ### Will this repo be updated?
 
 This repo was created based on what I'm doing for [my own blog](https://www.bencodezen.io), so any updates I make over there will be reflected here as well.
