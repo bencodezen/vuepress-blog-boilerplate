@@ -5,6 +5,7 @@ This is a basic template to use [VuePress](https://www.vuepress.vuejs.org) as yo
 1. Write posts in Markdown
 1. Only show the most recent posts with basic pagination
 1. Ability to search for posts
+1. Basic scheduling for future posts
 
 ## Demo
 
@@ -52,6 +53,12 @@ excerpt:
 3. Write your blog post using regular Markdown, [extensions](https://vuepress.vuejs.org/guide/markdown.html), and [Vue.js](https://vuepress.vuejs.org/guide/using-vue.html)!
 
 Once you're done, you can expect the home page to automatically generate a `<BlogPostPreview>` component with the meta data you provided along with a link to the blog post itself.
+
+#### Scheduling Posts for Future "Publishing"
+
+This blog theme currently allows you to set future "publish"* dates via [ISO-8601 format](https://en.wikipedia.org/wiki/ISO_8601) (i.e., YYYY-MM-DD hh:mm:ss).
+
+* Note: Your blog posts will technically be available, but the posts preview will not be surfaced on the home page and users will only be able to see your posts if they know the exact URL.
 
 
 ### Configuring Your Site
