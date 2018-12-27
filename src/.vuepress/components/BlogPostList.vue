@@ -12,7 +12,8 @@ export default {
             displayRange: {
                 start: 0,
                 end: 4
-            }
+            },
+            selectedTag: ''
         }
     },
     computed: {
@@ -20,16 +21,29 @@ export default {
             const props = this.$options.propsData
 
             if (props) {
-                return props.list.filter(item => {
-                    const isBlogPost = item.path.indexOf("/blog/") > -1
-                    const isReadyToPublish = new Date(item.frontmatter.date) <= new Date()
-                    
-                    if (isBlogPost && isReadyToPublish) {
-                        return item
-                    }
-                }).sort((a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.date))
+                if (this.selectedTag) {
+                    return props.list.filter(item => {
+                        const isBlogPost = item.path.indexOf("/blog/") > -1
+                        const isReadyToPublish = new Date(item.frontmatter.date) <= new Date()
+                        const hasTags = item.frontmatter.tags && item.frontmatter.tags.includes(this.selectedTag)
+                        
+                        if (isBlogPost && isReadyToPublish && hasTags) {
+                            return item
+                        }
+                    }).sort((a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.date))
+                } else {
+                    return props.list.filter(item => {
+                        const isBlogPost = item.path.indexOf("/blog/") > -1
+                        const isReadyToPublish = new Date(item.frontmatter.date) <= new Date()
+                        
+                        if (isBlogPost && isReadyToPublish) {
+                            return item
+                        }
+                    }).sort((a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.date))
+                }
+                
             }
-        }
+        },
     },
     methods: {
         nextPage() {
@@ -56,6 +70,13 @@ export default {
                     :publishDate="item.frontmatter.date"
                     :title="item.frontmatter.title"
                 />
+                <button 
+                    v-for="(tag, index) in item.frontmatter.tags"
+                    @click="selectedTag = tag"
+                    :key="item.frontmatter.title + '-' + tag"
+                >
+                    {{ tag }}
+                </button>
             </li>
         </ul>
 
