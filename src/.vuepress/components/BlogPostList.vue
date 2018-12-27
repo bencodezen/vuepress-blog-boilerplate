@@ -53,6 +53,9 @@ export default {
         previousPage() {
             this.displayRange.start -= 5
             this.displayRange.end -= 5   
+        },
+        updateSelectedTag(tag) {
+            this.selectedTag = tag
         }
     }
 }
@@ -70,7 +73,7 @@ export default {
             <button
                 type="button"
                 @click="selectedTag = ''"
-                class="clear-filter-btn"
+                class="btn clear-filter-btn"
             >
                 Clear filter
             </button>
@@ -83,15 +86,10 @@ export default {
                     :excerpt="item.frontmatter.excerpt" 
                     :path="item.path"
                     :publishDate="item.frontmatter.date"
+                    :tags="item.frontmatter.tags"
                     :title="item.frontmatter.title"
+                    @updateSelectedTag="updateSelectedTag"
                 />
-                <button 
-                    v-for="(tag, index) in item.frontmatter.tags"
-                    @click="selectedTag = tag"
-                    :key="item.frontmatter.title + '-' + tag"
-                >
-                    {{ tag }}
-                </button>
             </li>
         </ul>
 

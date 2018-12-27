@@ -6,6 +6,10 @@ export default {
             type: String,
             required: true
         },
+        tags: {
+            type: Array,
+            required: false
+        },
         title: {
             type: String,
             required: true
@@ -40,6 +44,21 @@ export default {
         <h3 class="blog-post__title">{{ title }}</h3>
         <p v-if="excerpt">{{ excerpt }}</p>
         <a class="button blog-post__button " :href="path">Read More ></a>
+        <ul class="tag-list">
+            <li 
+                v-for="(tag, index) in tags"
+                :key="`${title}-${tag}`"
+                class="tag-list__item"
+            >                
+                <button  
+                    @click="$emit('updateSelectedTag', tag)"
+                    :key="title + '-' + tag"
+                    class="tag-list__btn"
+                >
+                    {{ tag }}
+                </button>
+            </li>
+        </ul>
     </section>
 </template>
 
@@ -63,5 +82,26 @@ export default {
 	font-weight: 700;
 	box-shadow: 0 0;
 	transition: background-color 0.2s ease-in, color 0.2s ease-in;
+}
+
+.tag-list {
+    list-style: none;
+    padding-left: 0;
+    display: flex;
+    margin-bottom: 25px;
+}
+
+.tag-list__item {
+    margin-left: 10px;
+}
+
+.tag-list__item:first-child {
+    margin-left: 0;
+}
+
+.tag-list__btn {
+    padding: 5px;
+    font-size: 0.9rem;
+    background-color: #fff;
 }
 </style>
