@@ -64,6 +64,7 @@ You'll want to checkout `./src/.vuepress/config.js` if you want to update the fo
 - Repo Label in Navigation
 - Edit Page Link Text
 - Top Navigation
+- Favicon: Use [favicon-generator.org](https://www.favicon-generator.org/) to generate icons and simply replace all the files in `./src/.vuepress/public` and your favicon should just show up!
 
 ### Deploying Your Site
 
