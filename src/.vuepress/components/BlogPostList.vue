@@ -60,6 +60,21 @@ export default {
 
 <template>
 	<div>   
+        <div 
+            v-if="selectedTag"
+            class="filtered-heading"
+        >
+            <h2>
+                Filtered by {{ selectedTag }} tag
+            </h2>
+            <button
+                type="button"
+                @click="selectedTag = ''"
+                class="clear-filter-btn"
+            >
+                Clear filter
+            </button>
+        </div>
         <ul class="blog-list">
             <li v-for="(item, index) in filteredList"
                 class="blog-list__item">
@@ -126,6 +141,15 @@ export default {
     border: 1px solid #32c8cf;
     border-radius: 4px;
     color: #32c8cf;
+}
+
+.clear-filter-btn {
+    align-self: center;
+    margin-left: 20px;
+}
+
+.filtered-heading {
+    display: flex;
 }
 
 .pagination {
