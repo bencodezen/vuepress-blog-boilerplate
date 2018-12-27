@@ -6,6 +6,7 @@ This is a basic template to use [VuePress](https://www.vuepress.vuejs.org) as yo
 1. Only show the most recent posts with basic pagination
 1. Ability to search for posts
 1. Basic scheduling for future posts
+1. Basic tagging for posts
 
 ## Demo
 
@@ -45,9 +46,13 @@ yarn dev # OR npm run dev
 2. Use the following frontmatter template to provide meta data about your blog post
 ```yaml
 ---
-title: 
+title: Title of Your Post
 date: 2018-12-23 21:04:07
-excerpt: 
+excerpt: This is the snippet that will show up on the home page as preview text
+tags:
+    - HTML
+    - CSS
+    - JavaScript
 ---
 ```
 3. Write your blog post using regular Markdown, [extensions](https://vuepress.vuejs.org/guide/markdown.html), and [Vue.js](https://vuepress.vuejs.org/guide/using-vue.html)!
