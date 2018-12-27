@@ -20,8 +20,14 @@ export default {
             const props = this.$options.propsData
 
             if (props) {
-                return props.list.filter(item => item.path.indexOf("/blog/") > -1)
-                    .sort((a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.date))
+                return props.list.filter(item => {
+                    const isBlogPost = item.path.indexOf("/blog/") > -1
+                    const isReadyToPublish = new Date(item.frontmatter.date) <= new Date()
+                    
+                    if (isBlogPost && isReadyToPublish) {
+                        return item
+                    }
+                }).sort((a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.date))
             }
         }
     },
@@ -39,7 +45,7 @@ export default {
 </script>
 
 <template>
-	<div>
+	<div>   
         <ul class="blog-list">
             <li v-for="(item, index) in filteredList"
                 class="blog-list__item">
