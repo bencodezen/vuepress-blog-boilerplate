@@ -11,7 +11,8 @@ module.exports = {
 		nav: [
 			{ text: 'Home', link: '/' },
 			{ text: 'About', link: '/about/' },
-			{ text: 'Contact', link: '/contact/' }
+			{ text: 'Contact', link: '/contact/' },
+			{ text: 'RSS Feed', link: '/rss.xml' }
 		]
 	},
 	plugins: [
