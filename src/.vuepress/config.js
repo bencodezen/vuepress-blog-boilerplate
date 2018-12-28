@@ -3,7 +3,7 @@ module.exports = {
 	ga: '',
 	dest: './public',
 	themeConfig: {
-		repo: 'https://wwww.gitlab.com',
+		repo: 'https://wwww.github.com',
 		repoLabel: 'Custom Repo Label',
 		docsDir: 'src',
 		logo: '/vuepress-blog-logo.png',
@@ -11,8 +11,6 @@ module.exports = {
 		editLinkText: 'Found a bug? Help me improve this page!',
 		nav: [
 			{ text: 'Home', link: '/' },
-			{ text: 'About', link: '/about/' },
-			{ text: 'Contact', link: '/contact/' },
 			{ text: 'RSS Feed', link: '/rss.xml' }
 		]
 	},
