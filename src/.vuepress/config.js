@@ -20,6 +20,7 @@ module.exports = {
 			{
 				base_url: '/', 
 				site_url: 'https://vuepressblog.org', 
+				filter: (frontmatter => frontmatter.date <= new Date()),
 				count: 20
 			}
 		]
