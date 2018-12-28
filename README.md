@@ -1,37 +1,33 @@
-# VuePress Blog Template
+# VuePress Blog Boilerplate
 
-This is a basic template to use [VuePress](https://www.vuepress.vuejs.org) as your blogging platform. It is simple from a blogging engine perspective, but it does the basic things you need from a blog:
+This is an ever-changing and opinionated architecture that uses [VuePress](https://www.vuepress.vuejs.org) to power your blogging platform.
 
-1. Write posts in Markdown
-1. Only show the most recent posts with basic pagination
-1. Ability to search for posts
-1. Basic scheduling for future posts
-1. Basic tagging for posts
+## Features
 
-## Demo
+- Write posts in Markdown
+- Basic pagination sorted by most recent posts
+- Ability to search for posts via headings within the post
+- Basic scheduling for future publishing
+- Basic tagging for posts
+- Automatic RSS feed generation
+- Easily integrate Google Analytics
 
-- [BenCodeZen Blog](https://www.bencodezen.io)
+## Getting Started
 
-## How to Use
-
-> A more detailed guide is in the works, but the following has been written as a stop gap for those who want to start playing around with this sooner rather than later.
-
-### Getting Setup
-
-#### Requirement
+### Requirement
 
 - [NodeJS >= 8](https://nodejs.org/)
 
-#### Instructions
+### Instructions
 
 Navigate in your terminal to the desired directory where you want this project to live.
 
 ```bash
 # Clone the repo
-git clone https://gitlab.com/bencodezen/vuepress-blog.git
+git clone https://gitlab.com/bencodezen/vuepress-blog-boilerplate.git
 
 # Change directory into project
-cd vuepress-blog-template
+cd vuepress-blog-boilerplate
 
 # Install dependencies
 yarn # OR npm install
@@ -91,6 +87,10 @@ A more thorough guide to come, but as far as a high level overview of the steps 
     - **Build command**: `npm run build`
     - **Publish directory**: `public/`
 
+## Demo
+
+- [BenCodeZen Blog](https://www.bencodezen.io)
+
 ## FAQs
 
 ### Why VuePress?
@@ -104,3 +104,7 @@ This repo was created based on what I'm doing for [my own blog](https://www.benc
 ### Where do I request a feature, file a bug, or ask a question?
 
 All you have to do is [create a new issue](https://gitlab.com/bencodezen/vuepress-blog/issues/new)!
+
+## Hat Tip
+
+While this concept was born out of a desire to power my own blog with VuePress, the idea to make a boilerplate from it was inspired from [Chris Fritz's](https://www.twitter.com/chrisvfritz) [Vue Enterprise Boilerplate](https://github.com/chrisvfritz/vue-enterprise-boilerplate).
