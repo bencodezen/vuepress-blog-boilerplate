@@ -14,6 +14,16 @@ module.exports = {
 			{ text: 'Contact', link: '/contact/' }
 		]
 	},
+	plugins: [
+		[
+			'vuepress-plugin-rss',
+			{
+				base_url: '/', 
+				site_url: 'https://vuepressblog.org', 
+				count: 20
+			}
+		]
+	],
 	head: [
 		[
 			'link',

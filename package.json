@@ -9,6 +9,7 @@
 	"dependencies": {},
 	"devDependencies": {
 		"vuepress": "^1.0.0-alpha.30",
+		"vuepress-plugin-rss": "^2.0.0",
 		"yaml-front-matter": "^4.0.0"
 	}
 }
