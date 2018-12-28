@@ -46,8 +46,9 @@ You should now be able to visit [http:localhost:8080](http:localhost:8080) to se
 
 To check out the tutorial and docs, check out the guide (coming soon).
 
-## Demo
+## Examples
 
+- [VuePress Blog Boilerplate Demo](https://vigorous-lovelace-5c861d.netlify.com/)
 - [BenCodeZen Blog](https://www.bencodezen.io)
 
 ## FAQs
