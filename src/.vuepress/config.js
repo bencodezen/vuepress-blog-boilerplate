@@ -6,6 +6,7 @@ module.exports = {
 		repo: 'https://wwww.gitlab.com',
 		repoLabel: 'Custom Repo Label',
 		docsDir: 'src',
+		logo: '/vuepress-blog-logo.png',
 		editLinks: true,
 		editLinkText: 'Found a bug? Help me improve this page!',
 		nav: [
