@@ -5,14 +5,14 @@ module.exports = {
 	themeConfig: {
 		repo: 'https://wwww.github.com',
 		repoLabel: 'Repo',
-		docsDir: 'src',
-		logo: '/vuepress-blog-logo.png',
 		editLinks: true,
 		editLinkText: 'Found a bug? Help me improve this page!',
 		nav: [
 			{ text: 'Home', link: '/' },
 			{ text: 'RSS Feed', link: '/rss.xml' }
-		]
+		],
+		logo: '/vuepress-blog-logo.png',
+		docsDir: 'src'
 	},
 	plugins: [
 		[
