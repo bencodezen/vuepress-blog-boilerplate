@@ -4,7 +4,7 @@ module.exports = {
 	dest: './public',
 	themeConfig: {
 		repo: 'https://wwww.github.com',
-		repoLabel: 'Custom Repo Label',
+		repoLabel: 'Repo',
 		docsDir: 'src',
 		logo: '/vuepress-blog-logo.png',
 		editLinks: true,
