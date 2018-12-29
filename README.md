@@ -1,5 +1,7 @@
 # VuePress Blog Boilerplate
 
+![VuePress Blog Boilerplate Preview](preview.png)
+
 This is an ever-changing and opinionated architecture that uses [VuePress](https://www.vuepress.vuejs.org) to power your blogging platform.
 
 ## Features
