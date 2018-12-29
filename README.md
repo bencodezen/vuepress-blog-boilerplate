@@ -40,7 +40,7 @@ npm install # or yarn
 npm run dev # OR yarn dev
 ```
 
-You should now be able to visit [http:localhost:8080](http:localhost:8080) to see your local server running!
+You should now be able to visit [http://localhost:8080](http://localhost:8080)!
 
 ## Documentation
 
