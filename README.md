@@ -53,20 +53,8 @@ To check out the tutorial and docs, check out [the guide](https://www.bencodezen
 - [VuePress Blog Boilerplate Demo](https://vigorous-lovelace-5c861d.netlify.com/)
 - [BenCodeZen Blog](https://www.bencodezen.io)
 
-## FAQs
-
-### Why VuePress?
-
-While it is true that there are plenty of blogging engines out there already optimized for blogging, I enjoyed the authoring experience of VuePress so much that I wanted to make a blog version of it while the core team works through their roadmap.
-
-### Will this repo be updated?
-
-This repo was created based on what I'm doing for [my own blog](https://www.bencodezen.io), so any updates I make over there will be reflected here as well.
-
-### Where do I request a feature, file a bug, or ask a question?
-
-All you have to do is [create a new issue](https://gitlab.com/bencodezen/vuepress-blog/issues/new)!
-
 ## Hat Tip
 
-While this concept was born out of a desire to power my own blog with VuePress, the idea to make a boilerplate from it was inspired from [Chris Fritz's](https://www.twitter.com/chrisvfritz) [Vue Enterprise Boilerplate](https://github.com/chrisvfritz/vue-enterprise-boilerplate).
+For those familiar with the [Vue.js](https://www.vuejs.org) ecosystem, you might be reminded of [Chris Fritz's](https://www.twitter.com/chrisvfritz) [Vue Enterprise Boilerplate](https://github.com/chrisvfritz/vue-enterprise-boilerplate) and you would be absolutely right. I thought the concept was brilliant and wanted to do something similar for the [VuePress](https://vuepress.vuejs.org) ecosystem since blogging is something that still requires a fair amount of configuration and knowledge in order to get started.
+
+And in case you didn't know, Chris Fritz is one of the core contributors to the incredible [Vue.js docs](https://vuejs.org/v2/guide/) that we are love so much. So if you would like to help support him so he can spend more time on creating awesome content for the Vue.js community, please support him by [becoming a sponsor on Patreon](https://www.patreon.com/chrisvuefritz). 
