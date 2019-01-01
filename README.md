@@ -44,7 +44,7 @@ You should now be able to visit [http://localhost:8080](http://localhost:8080)!
 
 ## Documentation
 
-To check out the tutorial and docs, check out [the guide](https://www.bencodezen.io/learn/vuepress-blog-boilerplate/).
+To check out the tutorial and docs, check out [the guide](https://vuepress-blog-boilerplate.bencodezen.io/).
 
 ## Examples
 
