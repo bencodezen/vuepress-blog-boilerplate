@@ -4,7 +4,9 @@
 	"license": "MIT",
 	"scripts": {
 		"dev": "vuepress dev src",
-		"build": "vuepress build src"
+		"dev:docs": "vuepress dev docs",
+		"build": "vuepress build src",
+		"build:docs": "vuepress build docs"
 	},
 	"dependencies": {},
 	"devDependencies": {
