@@ -1,6 +1,5 @@
 module.exports = {
 	title: 'VuePress Blog Boilerplate',
-	ga: 'UA-131486844-1',
 	dest: './public',
 	themeConfig: {
 		repo: 'https://github.com/bencodezen/vuepress-blog-boilerplate',
@@ -10,11 +9,17 @@ module.exports = {
 		logo: '/vuepress-blog-logo.png',
 		editLinkText: 'Found a bug? Help me improve this page!',
 		nav: [
-            { text: 'Home', link: '/' },
-            { text: 'Learn', link: '/learn/' }
+			{ text: 'Home', link: '/' }, 
+			{ text: 'Learn', link: '/learn/' }
 		]
 	},
 	plugins: [
+		[
+			'@vuepress/google-analytics',
+			{
+				ga: 'UA-92645815-3'
+			}
+		],
 		[
 			'vuepress-plugin-rss',
 			{
