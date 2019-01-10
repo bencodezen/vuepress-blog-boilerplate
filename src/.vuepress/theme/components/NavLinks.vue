@@ -35,8 +35,8 @@
 
 <script>
 import DropdownLink from './DropdownLink.vue'
-import { resolveNavLinkItem } from './util'
 import NavLink from './NavLink.vue'
+import { resolveNavLinkItem } from '../util'
 
 export default {
   components: { NavLink, DropdownLink },
@@ -116,7 +116,7 @@ export default {
 </script>
 
 <style lang="stylus">
-@import './styles/config.styl'
+@import '../styles/config.styl'
 
 .nav-links
   display inline-block
