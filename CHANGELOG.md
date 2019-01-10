@@ -13,3 +13,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 - Future blog posts will no longer be output in the build directory
+- RSS Feed filter will now compare identical UTC timezone
