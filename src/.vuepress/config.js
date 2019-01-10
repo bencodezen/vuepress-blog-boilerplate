@@ -1,6 +1,5 @@
 module.exports = {
 	title: 'My New VuePress Blog',
-	ga: '',
 	dest: './public',
 	themeConfig: {
 		repo: 'https://wwww.github.com',
@@ -15,6 +14,12 @@ module.exports = {
 		docsDir: 'src'
 	},
 	plugins: [
+		[
+			'@vuepress/google-analytics',
+			{
+				'ga': '' // UA-00000000-0
+			}
+		]
 		[
 			'vuepress-plugin-rss',
 			{
