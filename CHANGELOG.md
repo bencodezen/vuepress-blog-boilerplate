@@ -14,3 +14,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 - Future blog posts will no longer be output in the build directory
 - RSS Feed filter will now compare identical UTC timezone
+
+### Deprecated
+- Limited tagging UI functionality (i.e., sort posts by tags) was removed in order to allow for better integration of official blog plugin in the near future
