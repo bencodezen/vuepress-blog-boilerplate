@@ -28,7 +28,8 @@ module.exports = {
 				filter: (frontmatter => frontmatter.date <= new Date()),
 				count: 20
 			}
-		]
+		],
+		'vuepress-plugin-janitor'
 	],
 	head: [
 		[

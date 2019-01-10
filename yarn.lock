@@ -7114,6 +7114,11 @@ vuepress-html-webpack-plugin@^3.2.0:
     toposort "^1.0.0"
     util.promisify "1.0.0"
 
+vuepress-plugin-janitor@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/vuepress-plugin-janitor/-/vuepress-plugin-janitor-1.0.0.tgz#493cc6196891a900747445317bf8bd254d4588e8"
+  integrity sha512-fscHL6nCRloSBfg/nSrQ68QHfkLEiNLUaW/ZE1d9KV366trw2AwZNdUCr4AWye80IiyzJFZV+Sj4Xnx9r+5qdA==
+
 vuepress-plugin-rss@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/vuepress-plugin-rss/-/vuepress-plugin-rss-2.0.0.tgz#9e08479703f5d426305ae4e686d65ba7de562255"
