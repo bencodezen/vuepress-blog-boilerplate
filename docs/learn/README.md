@@ -237,15 +237,6 @@ For more advanced blogging features, be sure to check out the rest of the docs!
 
 This blog theme currently allows you to set future "publish"* dates via [ISO-8601 format](https://en.wikipedia.org/wiki/ISO_8601) (i.e., YYYY-MM-DD hh:mm:ss).
 
-::: warning
-Your blog posts will technically be available since VuePress is still generating the page at this time, however:
-
-1. The post's preview will not be surfaced on the home page
-2. The RSS feed will not publish it so it won't show up in people's updates
-
-Users will only be able to see your posts if they know the exact URL at this time, but I am working on a way to block it out entirely.
-:::
-
 > More feature guides coming soon!
 
 ## Site Configuration
