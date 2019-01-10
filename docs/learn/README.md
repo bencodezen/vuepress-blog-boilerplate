@@ -306,10 +306,16 @@ Odds are pretty good that you'd like to do some metric tracking for visitors to 
 6. Open `./src/.vuepress/config.js` in your favorite text editor
 7. Update the `ga` property with your tracking ID
 
-```js{3}
+```js{4-9}
 module.exports = {
 	title: 'My New VuePress Blog',
-	ga: 'UA-12345678-1'
+	...
+	plugins: [
+		'@vuepress/google-analytics',
+		{
+			'ga': '' // UA-00000000-0
+		}
+	]
 	...
 }
 ```
