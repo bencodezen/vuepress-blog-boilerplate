@@ -86,7 +86,6 @@ export default {
                     :excerpt="item.frontmatter.excerpt" 
                     :path="item.path"
                     :publishDate="item.frontmatter.date"
-                    :tags="item.frontmatter.tags"
                     :title="item.frontmatter.title"
                     @updateSelectedTag="updateSelectedTag"
                 />
