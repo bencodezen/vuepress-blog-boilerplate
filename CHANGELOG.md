@@ -6,7 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Added
-- VuePres Plugin Janitor for removing future blog posts
+- Configured VuePress Plugin Janitor
 
 ### Changed
 - Google Analytics is now a plugin and configured via plugin and not in the config object directly
+
+### Fixed
+- Future blog posts will no longer be output in the build directory
