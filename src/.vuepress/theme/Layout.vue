@@ -29,9 +29,14 @@
       />
     </Sidebar>
 
+    <Blog 
+      v-if="$frontmatter.blog" 
+      :sidebar-items="sidebarItems"
+    />
+
     <div
       class="custom-layout"
-      v-if="$page.frontmatter.layout"
+      v-else-if="$page.frontmatter.layout"
     >
       <component :is="$page.frontmatter.layout"/>
     </div>
@@ -59,6 +64,7 @@
 <script>
 import Vue from 'vue'
 import nprogress from 'nprogress'
+import Blog from './layout/Blog.vue'
 import Home from './layout/Home.vue'
 import Page from './layout/Page.vue'
 import Navbar from './components/Navbar.vue'
@@ -67,7 +73,14 @@ import SWUpdatePopup from './components/SWUpdatePopup.vue'
 import { resolveSidebarItems } from './util'
 
 export default {
-  components: { Home, Page, Sidebar, Navbar, SWUpdatePopup },
+  components: { 
+    Blog,
+    Home, 
+    Page, 
+    Sidebar, 
+    Navbar, 
+    SWUpdatePopup 
+  },
 
   data () {
     return {
