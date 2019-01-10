@@ -1,3 +1,5 @@
+const currentDateUTC = new Date().toUTCString()
+
 module.exports = {
 	title: 'My New VuePress Blog',
 	dest: './public',
@@ -7,7 +9,7 @@ module.exports = {
 		editLinks: true,
 		editLinkText: 'Found a bug? Help me improve this page!',
 		nav: [
-			{ text: 'Home', link: '/' },
+			{ text: 'Home', link: '/' }, 
 			{ text: 'RSS Feed', link: '/rss.xml' }
 		],
 		logo: '/vuepress-blog-logo.png',
@@ -17,15 +19,15 @@ module.exports = {
 		[
 			'@vuepress/google-analytics',
 			{
-				'ga': '' // UA-00000000-0
+				ga: '' // UA-00000000-0
 			}
 		],
 		[
 			'vuepress-plugin-rss',
 			{
-				base_url: '/', 
-				site_url: 'https://vuepressblog.org', 
-				filter: (frontmatter => frontmatter.date <= new Date()),
+				base_url: '/',
+				site_url: 'https://vuepressblog.org',
+				filter: frontmatter => frontmatter.date <= new Date(currentDateUTC),
 				count: 20
 			}
 		],
