@@ -288,6 +288,43 @@ title: My Custom Title to Override the H1
 # My Heading One That Turns into a Title
 ```
 
+### Logo
+
+The logo is responsible for the image that you see in the upper left corner. The default is for it to be blank, but I found that most people like having their logo on their site and have turned included it in the boilerplate.
+
+In order to update your logo, this is controlled in your `config.js` file under the `themeConfig` key:
+
+```js{6}
+module.exports = {
+	title: 'My New VuePress Blog',
+	dest: './public',
+	themeConfig: {
+		...,
+		logo: '/vuepress-blog-logo.png'
+	}
+}
+```
+
+The path to your image is based on `.vuepress/public` directory.
+
+#### Examples
+
+```js
+// If your logo is in `.vuepress/public/your-logo.png`
+module.exports = {
+	themeConfig: {
+		logo: '/your-logo.png'
+	}
+}
+
+// If your logo is in `.vuepress/public/img/your-logo.png`
+module.exports = {
+	themeConfig: {
+		logo: '/img/your-logo.png'
+	}
+}
+```
+
 ### Google Analytics
 
 Odds are pretty good that you'd like to do some metric tracking for visitors to your blog and such. So luckily it's really easy to add your Google Analytics ID:
