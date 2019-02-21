@@ -9,6 +9,10 @@ type: guide
 
 Welcome to my guide on how to use the [VuePress Blog Boilerplate](https://github.com/bencodezen/vuepress-blog-boilerplate/)! This project was born out of a desire to use [VuePress](https://vuepress.vuejs.org) as my blogging engine and no clear path to do so. 
 
+### Version
+
+This project is currently at `version {{ $themeConfig.version }}`.
+
 ### Purpose
 
 The objective for this project is simple: 

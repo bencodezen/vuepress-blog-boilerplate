@@ -11,7 +11,8 @@ module.exports = {
 		nav: [
 			{ text: 'Home', link: '/' }, 
 			{ text: 'Learn', link: '/learn/' }
-		]
+		],
+		version: '0.9.0-beta'
 	},
 	plugins: [
 		[
