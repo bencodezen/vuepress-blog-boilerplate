@@ -6,7 +6,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Added
-- Add explanation for logos in docs
+- Explanation for logos in docs
+- Feature to estimate reading time on blog posts 
 
 ## [0.9.0-beta]
 ### Added
