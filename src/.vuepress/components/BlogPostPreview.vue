@@ -2,32 +2,20 @@
 export default {
     name: 'BlogPostPreview',
     props: {
-        publishDate: {
-            type: String,
+        item: {
+            type: Object,
             required: true
-        },
-        title: {
-            type: String,
-            required: true
-        },
-        path: {
-            type: String,
-            required: true
-        },
-        excerpt: {
-            type: String,
-            required: false
         }
     },
     computed: {
         formatPublishDate() {
-            const dateFormat = new Date(this._props.publishDate)
+            const dateFormat = new Date(this.item.frontmatter.date)
             const options = {
                 year: 'numeric',
                 month: 'long',
                 day: 'numeric'
             } 
-            
+
             return dateFormat.toLocaleDateString('en-US', options)
         }
     }
@@ -37,9 +25,10 @@ export default {
 <template>
 	<section>
         <time>{{ formatPublishDate }}</time>
-        <h3 class="blog-post__title">{{ title }}</h3>
-        <p v-if="excerpt">{{ excerpt }}</p>
-        <a class="button blog-post__button " :href="path">Read More ></a>
+        <h3 class="blog-post__title">{{ item.frontmatter.title }}</h3>
+        <p v-if="item.frontmatter.excerpt">{{ item.frontmatter.excerpt }}</p>
+        <p v-if="item.readingTime">Estimated time: {{ item.readingTime.text }}</p>
+        <a class="button blog-post__button " :href="item.path">Read More ></a>
     </section>
 </template>
 

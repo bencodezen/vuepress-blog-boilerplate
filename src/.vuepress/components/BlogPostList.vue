@@ -83,11 +83,7 @@ export default {
                 class="blog-list__item">
                 <BlogPostPreview 
                     v-show="index >= displayRange.start && index <= displayRange.end"
-                    :excerpt="item.frontmatter.excerpt" 
-                    :path="item.path"
-                    :publishDate="item.frontmatter.date"
-                    :title="item.frontmatter.title"
-                    @updateSelectedTag="updateSelectedTag"
+                    :item="item"
                 />
             </li>
         </ul>
