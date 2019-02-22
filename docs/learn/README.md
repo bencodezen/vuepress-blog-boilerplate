@@ -241,7 +241,17 @@ For more advanced blogging features, be sure to check out the rest of the docs!
 
 This blog theme currently allows you to set future "publish"* dates via [ISO-8601 format](https://en.wikipedia.org/wiki/ISO_8601) (i.e., YYYY-MM-DD hh:mm:ss).
 
-> More feature guides coming soon!
+### Time to Read Snippet
+
+This is currently supported through [Darren Jenning's VuePress Plugin Reading Time](https://github.com/darrenjennings/vuepress-plugin-reading-time) and is configured in the `plugin` section of `config.js`.
+
+You can find examples of its usage in `BlogPostPreview.vue` and `BlogPostList.vue` with snippets such as:
+
+```js
+$page.readingTime.text
+```
+
+You can find more info about [options of the reading time plugin here](https://github.com/darrenjennings/vuepress-plugin-reading-time#usage).
 
 ## Site Configuration
 
