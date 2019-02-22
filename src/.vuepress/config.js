@@ -31,6 +31,7 @@ module.exports = {
 				count: 20
 			}
 		],
+		'vuepress-plugin-reading-time',
 		'vuepress-plugin-janitor'
 	],
 	head: [

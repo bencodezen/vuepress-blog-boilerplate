@@ -5797,6 +5797,11 @@ readdirp@^2.0.0:
     micromatch "^3.1.10"
     readable-stream "^2.0.2"
 
+reading-time@1.1.3:
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/reading-time/-/reading-time-1.1.3.tgz#47de143074245be6f65e2b3c9b63b78d9ab8ec7a"
+  integrity sha512-SYy+cuoGy1MTLjIbgwTZ+DkDiDq/dE1OnqBQFYytXgNWRZROuqtBdu7HoJ+HbGMnoAinOHnHnqbEUYnpSho5aA==
+
 redent@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/redent/-/redent-2.0.0.tgz#c1b2007b42d57eb1389079b3c8333639d5e1ccaa"
@@ -7118,6 +7123,13 @@ vuepress-plugin-janitor@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/vuepress-plugin-janitor/-/vuepress-plugin-janitor-1.0.0.tgz#493cc6196891a900747445317bf8bd254d4588e8"
   integrity sha512-fscHL6nCRloSBfg/nSrQ68QHfkLEiNLUaW/ZE1d9KV366trw2AwZNdUCr4AWye80IiyzJFZV+Sj4Xnx9r+5qdA==
+
+vuepress-plugin-reading-time@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/vuepress-plugin-reading-time/-/vuepress-plugin-reading-time-0.1.1.tgz#3ea3dcded424a00c1d5175a50af8d5694899f1ea"
+  integrity sha512-j94utmn4nojYWyOVqfUF3eLWOMTAmZpR0G1gUlmast6KFu/VLevJvxFgJfa6DVaSlTpUH1DMLYspcjLv5pHhDw==
+  dependencies:
+    reading-time "1.1.3"
 
 vuepress-plugin-rss@^2.0.0:
   version "2.0.0"
