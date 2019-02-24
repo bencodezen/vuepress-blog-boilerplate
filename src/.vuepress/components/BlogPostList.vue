@@ -13,6 +13,10 @@ export default {
         startPage: {
             type: Number,
             default: 0
+        },
+        newestFirst: {
+            type: Boolean,
+            default: true
         }
     },
     data() {
@@ -42,7 +46,7 @@ export default {
                         if (isBlogPost && isReadyToPublish) {
                             return item
                         }
-                    }).sort((a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.date))
+                    }).sort((a, b) => this.newestFirst? new Date(b.frontmatter.date) - new Date(a.frontmatter.date): new Date(a.frontmatter.date) - new Date(b.frontmatter.date))
                 } 
             }
         },

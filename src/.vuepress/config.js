@@ -17,6 +17,7 @@ module.exports = {
 		docsDir: 'src',
 		pageSize: 5,
 		startPage: 0,
+		newestFirst: true
 	},
 	plugins: [
 		[
