@@ -14,7 +14,8 @@ module.exports = {
 			{ text: 'RSS Feed', link: '/rss.xml' }
 		],
 		logo: '/vuepress-blog-logo.png',
-		docsDir: 'src'
+		docsDir: 'src',
+		itemCount: 5,
 	},
 	plugins: [
 		[

@@ -5,24 +5,26 @@ export default {
         list: {
             type: Array,
             default: []
+        },
+        itemCount: {
+            type: Number,
+            default: 5
         }
     },
     data() {
         return {
             displayRange: {
                 start: 0,
-                end: 4
+                end: this.itemCount
             },
             selectedTag: ''
         }
     },
     computed: {
         filteredList() {
-            const props = this.$options.propsData
-
-            if (props) {
+            if (this.list) {
                 if (this.selectedTag) {
-                    return props.list.filter(item => {
+                    return this.list.filter(item => {
                         const isBlogPost = item.path.indexOf("/blog/") > -1
                         const isReadyToPublish = new Date(item.frontmatter.date) <= new Date()
                         const hasTags = item.frontmatter.tags && item.frontmatter.tags.includes(this.selectedTag)
@@ -32,7 +34,7 @@ export default {
                         }
                     }).sort((a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.date))
                 } else {
-                    return props.list.filter(item => {
+                    return this.list.filter(item => {
                         const isBlogPost = item.path.indexOf("/blog/") > -1
                         const isReadyToPublish = new Date(item.frontmatter.date) <= new Date()
                         
@@ -47,12 +49,13 @@ export default {
     },
     methods: {
         nextPage() {
-            this.displayRange.start += 5
-            this.displayRange.end += 5
+            console.log(this.itemCount)
+            this.displayRange.start += this.itemCount
+            this.displayRange.end += this.itemCount
         },
         previousPage() {
-            this.displayRange.start -= 5
-            this.displayRange.end -= 5   
+            this.displayRange.start -= this.itemCount
+            this.displayRange.end -= this.itemCount
         },
         updateSelectedTag(tag) {
             this.selectedTag = tag
@@ -82,7 +85,7 @@ export default {
             <li v-for="(item, index) in filteredList"
                 class="blog-list__item">
                 <BlogPostPreview 
-                    v-show="index >= displayRange.start && index <= displayRange.end"
+                    v-show="index >= displayRange.start && index < displayRange.end"
                     :item="item"
                 />
             </li>
