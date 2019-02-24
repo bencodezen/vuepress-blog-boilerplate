@@ -1,3 +1,13 @@
+<template>
+	<section>
+        <time>{{ formatPublishDate }}</time>
+        <h3 class="blog-post__title">{{ item.frontmatter.title }}</h3>
+        <p v-if="item.frontmatter.excerpt">{{ item.frontmatter.excerpt }}</p>
+        <p v-if="item.readingTime">Estimated time: {{ item.readingTime.text }}</p>
+        <a class="button blog-post__button " :href="item.path">Read More ></a>
+    </section>
+</template>
+
 <script>
 export default {
     name: 'BlogPostPreview',
@@ -21,16 +31,6 @@ export default {
     }
 }
 </script>
-
-<template>
-	<section>
-        <time>{{ formatPublishDate }}</time>
-        <h3 class="blog-post__title">{{ item.frontmatter.title }}</h3>
-        <p v-if="item.frontmatter.excerpt">{{ item.frontmatter.excerpt }}</p>
-        <p v-if="item.readingTime">Estimated time: {{ item.readingTime.text }}</p>
-        <a class="button blog-post__button " :href="item.path">Read More ></a>
-    </section>
-</template>
 
 <style scoped>
 .blog-post__button {

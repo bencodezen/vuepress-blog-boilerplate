@@ -1,3 +1,49 @@
+<template>
+	<div>  
+        <div 
+            v-if="selectedTag"
+            class="filtered-heading"
+        >
+            <h2>
+                Filtered by {{ selectedTag }} tag
+            </h2>
+            <button
+                type="button"
+                @click="selectedTag = ''"
+                class="btn clear-filter-btn"
+            >
+                Clear filter
+            </button>
+        </div>
+        <ul class="blog-list">
+            <li v-for="(item, index) in filteredList"
+                class="blog-list__item">
+                <BlogPostPreview 
+                    v-show="index >= currentPage * pageSize && index < (currentPage + 1) * pageSize"
+                    :item="item"
+                />
+            </li>
+        </ul>
+
+        <div class="pagination">
+            <button v-show="currentPage > 0" 
+                @click="previousPage"
+                class="button--pagination"
+                type="button" 
+            >
+                Previous
+            </button>
+            <button v-show="currentPage < totalPages - 1"
+                @click="nextPage"
+                class="button--pagination"
+                type="button"
+            >
+                Next
+            </button>
+        </div>
+    </div>
+</template>
+
 <script>
 export default {
     name: 'BlogPostList',
@@ -73,52 +119,6 @@ export default {
     }
 }
 </script>
-
-<template>
-	<div>  
-        <div 
-            v-if="selectedTag"
-            class="filtered-heading"
-        >
-            <h2>
-                Filtered by {{ selectedTag }} tag
-            </h2>
-            <button
-                type="button"
-                @click="selectedTag = ''"
-                class="btn clear-filter-btn"
-            >
-                Clear filter
-            </button>
-        </div>
-        <ul class="blog-list">
-            <li v-for="(item, index) in filteredList"
-                class="blog-list__item">
-                <BlogPostPreview 
-                    v-show="index >= currentPage * pageSize && index < (currentPage + 1) * pageSize"
-                    :item="item"
-                />
-            </li>
-        </ul>
-
-        <div class="pagination">
-            <button v-show="currentPage > 0" 
-                @click="previousPage"
-                class="button--pagination"
-                type="button" 
-            >
-                Previous
-            </button>
-            <button v-show="currentPage < totalPages - 1"
-                @click="nextPage"
-                class="button--pagination"
-                type="button"
-            >
-                Next
-            </button>
-        </div>
-    </div>
-</template>
 
 <style scoped>
 .blog-list {
