@@ -2,77 +2,95 @@
 export default {
     name: 'BlogPostList',
     props: {
-        list: {
+        pages: {
             type: Array,
             default: []
+        },
+        pageSize: {
+            type: Number,
+            default: 5
+        },
+        startPage: {
+            type: Number,
+            default: 0
+        },
+        newestFirst: {
+            type: Boolean,
+            default: true
         }
     },
     data() {
         return {
-            displayRange: {
-                start: 0,
-                end: 4
-            },
-            selectedTag: ''
+            currentPage: Math.ceil(this.startPage / this.pageSize),
+            selectedTags: []
         }
     },
     computed: {
         filteredList() {
-            const props = this.$options.propsData
-
-            if (props) {
-                if (this.selectedTag) {
-                    return props.list.filter(item => {
-                        const isBlogPost = item.path.indexOf("/blog/") > -1
-                        const isReadyToPublish = new Date(item.frontmatter.date) <= new Date()
-                        const hasTags = item.frontmatter.tags && item.frontmatter.tags.includes(this.selectedTag)
-                        
-                        if (isBlogPost && isReadyToPublish && hasTags) {
-                            return item
-                        }
-                    }).sort((a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.date))
-                } else {
-                    return props.list.filter(item => {
-                        const isBlogPost = item.path.indexOf("/blog/") > -1
-                        const isReadyToPublish = new Date(item.frontmatter.date) <= new Date()
-                        
-                        if (isBlogPost && isReadyToPublish) {
-                            return item
-                        }
-                    }).sort((a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.date))
-                }
+            if (this.pages) {
                 
+                return this.pages.filter(item => {
+                    const isBlogPost = !!item.frontmatter.blog
+                    const isReadyToPublish = new Date(item.frontmatter.date) <= new Date()
+                    // check if tags contain any of the selected tags
+                    // const hasTags = item.frontmatter.tags && item.frontmatter.tags.some(tag => this.selectedTags.includes(tag))
+                    // check if tags contain all of the selected tags
+                    const hasTags = !!item.frontmatter.tags && this.selectedTags.every((tag) => item.frontmatter.tags.includes(tag))
+
+                    if (!isBlogPost || !isReadyToPublish || (this.selectedTags.length > 0 && !hasTags)){ 
+                        return false
+                    }
+
+                    return true
+                    
+                }).sort((a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.date))
             }
         },
+
+        totalPages() {
+            
+            return Math.ceil(this.filteredList.length / this.pageSize)
+        },
     },
+
+    mounted() {
+        this.currentPage =  Math.min(Math.max(this.currentPage, 0), this.totalPages - 1)
+    },
+
     methods: {
         nextPage() {
-            this.displayRange.start += 5
-            this.displayRange.end += 5
+            this.currentPage = this.currentPage >= this.totalPages - 1 ? this.totalPages - 1 : this.currentPage + 1
         },
         previousPage() {
-            this.displayRange.start -= 5
-            this.displayRange.end -= 5   
+            this.currentPage = this.currentPage < 0 ? 0 : this.currentPage - 1
         },
-        updateSelectedTag(tag) {
-            this.selectedTag = tag
+        addTag(tag) {
+            if (!(tag in this.selectedTags)){
+                this.selectedTags = this.selectedTags.concat(tag)
+            }
+        },
+        removeTag(tag) {
+            this.selectedTags.filter(t => t != tag)
+        },
+        resetTags(){
+            this.selectedTags = []
         }
     }
 }
 </script>
 
 <template>
-	<div>   
+	<div>  
         <div 
-            v-if="selectedTag"
+            v-if="selectedTags.length > 0"
             class="filtered-heading"
         >
             <h2>
-                Filtered by {{ selectedTag }} tag
+                Filtered by {{ selectedTags.join(',') }}
             </h2>
             <button
                 type="button"
-                @click="selectedTag = ''"
+                @click="resetTags"
                 class="btn clear-filter-btn"
             >
                 Clear filter
@@ -82,21 +100,21 @@ export default {
             <li v-for="(item, index) in filteredList"
                 class="blog-list__item">
                 <BlogPostPreview 
-                    v-show="index >= displayRange.start && index <= displayRange.end"
+                    v-show="index >= currentPage * pageSize && index < (currentPage + 1) * pageSize"
                     :item="item"
                 />
             </li>
         </ul>
 
         <div class="pagination">
-            <button v-show="displayRange.start !== 0" 
+            <button v-show="currentPage > 0" 
                 @click="previousPage"
                 class="button--pagination"
                 type="button" 
             >
                 Previous
             </button>
-            <button v-show="displayRange.end < filteredList.length"
+            <button v-show="currentPage < totalPages - 1"
                 @click="nextPage"
                 class="button--pagination"
                 type="button"

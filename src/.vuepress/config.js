@@ -10,10 +10,15 @@ module.exports = {
 		editLinkText: 'Found a bug? Help me improve this page!',
 		nav: [
 			{ text: 'Home', link: '/' }, 
+			{ text: 'Blog', link: '/blog/' },
+			{ text: 'Archive', link: '/archive/' },
 			{ text: 'RSS Feed', link: '/rss.xml' }
 		],
 		logo: '/vuepress-blog-logo.png',
-		docsDir: 'src'
+		docsDir: 'src',
+		pageSize: 5,
+		startPage: 0,
+		newestFirst: true
 	},
 	plugins: [
 		[
