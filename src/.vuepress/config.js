@@ -15,7 +15,8 @@ module.exports = {
 		],
 		logo: '/vuepress-blog-logo.png',
 		docsDir: 'src',
-		itemCount: 5,
+		pageSize: 5,
+		startPage: 0,
 	},
 	plugins: [
 		[

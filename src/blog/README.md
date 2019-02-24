@@ -1,5 +1,4 @@
 ---
 title: Blog
 ---
-
-<BlogPostList :list="$site.pages" :item-count="$site.themeConfig.itemCount"/>
+<BlogPostList :pages="$site.pages" :page-size="$site.themeConfig.pageSize" :startPage="$site.themeConfig.startPage"/>

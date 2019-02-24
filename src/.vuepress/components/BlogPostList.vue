@@ -2,29 +2,30 @@
 export default {
     name: 'BlogPostList',
     props: {
-        list: {
+        pages: {
             type: Array,
             default: []
         },
-        itemCount: {
+        pageSize: {
             type: Number,
             default: 5
+        },
+        startPage: {
+            type: Number,
+            default: 0
         }
     },
     data() {
         return {
-            displayRange: {
-                start: 0,
-                end: this.itemCount
-            },
+            currentPage: Math.ceil(this.startPage / this.pageSize),
             selectedTag: ''
         }
     },
     computed: {
         filteredList() {
-            if (this.list) {
+            if (this.pages) {
                 if (this.selectedTag) {
-                    return this.list.filter(item => {
+                    return this.pages.filter(item => {
                         const isBlogPost = item.path.indexOf("/blog/") > -1
                         const isReadyToPublish = new Date(item.frontmatter.date) <= new Date()
                         const hasTags = item.frontmatter.tags && item.frontmatter.tags.includes(this.selectedTag)
@@ -34,7 +35,7 @@ export default {
                         }
                     }).sort((a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.date))
                 } else {
-                    return this.list.filter(item => {
+                    return this.pages.filter(item => {
                         const isBlogPost = item.path.indexOf("/blog/") > -1
                         const isReadyToPublish = new Date(item.frontmatter.date) <= new Date()
                         
@@ -42,20 +43,25 @@ export default {
                             return item
                         }
                     }).sort((a, b) => new Date(b.frontmatter.date) - new Date(a.frontmatter.date))
-                }
-                
+                } 
             }
         },
+
+        totalPages() {
+            return Math.ceil(this.filteredList.length / this.pageSize)
+        },
     },
+
+    mounted() {
+        this.currentPage =  Math.min(Math.max(this.currentPage, 0), this.totalPages - 1)
+    },
+
     methods: {
         nextPage() {
-            console.log(this.itemCount)
-            this.displayRange.start += this.itemCount
-            this.displayRange.end += this.itemCount
+            this.currentPage = this.currentPage >= this.totalPages - 1 ? this.totalPages - 1 : this.currentPage + 1
         },
         previousPage() {
-            this.displayRange.start -= this.itemCount
-            this.displayRange.end -= this.itemCount
+            this.currentPage = this.currentPage < 0 ? 0 : this.currentPage - 1
         },
         updateSelectedTag(tag) {
             this.selectedTag = tag
@@ -65,7 +71,7 @@ export default {
 </script>
 
 <template>
-	<div>   
+	<div>  
         <div 
             v-if="selectedTag"
             class="filtered-heading"
@@ -85,21 +91,21 @@ export default {
             <li v-for="(item, index) in filteredList"
                 class="blog-list__item">
                 <BlogPostPreview 
-                    v-show="index >= displayRange.start && index < displayRange.end"
+                    v-show="index >= currentPage * pageSize && index < (currentPage + 1) * pageSize"
                     :item="item"
                 />
             </li>
         </ul>
 
         <div class="pagination">
-            <button v-show="displayRange.start !== 0" 
+            <button v-show="currentPage > 0" 
                 @click="previousPage"
                 class="button--pagination"
                 type="button" 
             >
                 Previous
             </button>
-            <button v-show="displayRange.end < filteredList.length"
+            <button v-show="currentPage < totalPages - 1"
                 @click="nextPage"
                 class="button--pagination"
                 type="button"
