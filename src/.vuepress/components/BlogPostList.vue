@@ -81,7 +81,7 @@ export default {
                     // check if tags contain any of the selected tags
                     // const hasTags = item.frontmatter.tags && item.frontmatter.tags.some(tag => this.selectedTags.includes(tag))
                     // check if tags contain all of the selected tags
-                    const hasTags = !!item.frontmatter.tags && item.frontmatter.tags.includes(this.selectedTags)
+                    const hasTags = !!item.frontmatter.tags && this.selectedTags.every((tag) => item.frontmatter.tags.includes(tag))
 
                     if (!isBlogPost || !isReadyToPublish || (this.selectedTags.length > 0 && !hasTags)){ 
                         return false
