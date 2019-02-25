@@ -9,6 +9,7 @@ This is an ever-changing and opinionated architecture that uses [VuePress](https
 - Write posts in Markdown
 - Basic pagination sorted by most recent posts
 - Ability to search for posts via headings within the post
+- Archived posts page
 - Basic scheduling for future publishing
 - Basic tagging for posts
 - Automatic RSS feed generation

@@ -28,6 +28,7 @@ By using this boilerplate, in addition to all the awesome things that already co
 - Automatic RSS Feed Generation
 - Easy favicon configuration
 - Simple pagination on the home page
+- Archived page of all posts sorted by date
 
 Piece of cake right? Well time's a wasting, let's get to it!
 
