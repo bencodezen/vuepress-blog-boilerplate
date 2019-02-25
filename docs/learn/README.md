@@ -17,7 +17,7 @@ This project is currently at `version {{ $themeConfig.version }}`.
 
 The objective for this project is simple: 
 
-> Allow a developer to started a blog with VuePress and deployed within 15 minutes.
+> To provide a blueprint of how blogging is possible with [VuePress](https://vuepress.vuejs.org/) and empower you with enough boilerplate so you feel comfortable customizing it to your liking.
 
 ### Features
 
