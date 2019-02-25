@@ -4,6 +4,10 @@
 
 This is an ever-changing and opinionated architecture that uses [VuePress](https://www.vuepress.vuejs.org) to power your blogging platform.
 
+## Purpose
+
+To provide a blueprint of how blogging is possible with [VuePress](https://vuepress.vuejs.org/) and empower you with enough boilerplate so you feel comfortable customizing it to your liking.
+
 ## Features
 
 - Write posts in Markdown
