@@ -1,7 +1,7 @@
 {
 	"name": "vuepress-blog",
 	"description": "This is a basic template to use VuePress as your blogging platform",
-	"version": "0.10.0-beta",
+	"version": "0.11.0-beta",
 	"license": "MIT",
 	"scripts": {
 		"dev": "vuepress dev src",
