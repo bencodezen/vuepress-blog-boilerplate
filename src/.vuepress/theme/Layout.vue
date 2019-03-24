@@ -30,7 +30,7 @@
     </Sidebar>
 
     <Blog 
-      v-if="$frontmatter.blog" 
+      v-if="$page.frontmatter.blog" 
       :sidebar-items="sidebarItems"
     />
 
