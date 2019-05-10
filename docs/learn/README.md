@@ -239,6 +239,25 @@ For more advanced blogging features, be sure to check out the rest of the docs!
 
 ## Blogging Features
 
+### Tags
+
+You can tag your posts in frontmatter now. 
+
+Here is an example from:
+
+```yaml
+---
+title: A Post with Tags
+...
+tags:
+	- HTML
+	- CSS
+	- JavaScript
+---
+```
+
+This will expose your tags in the `BlogPostList.vue` where it will filter down the displayed posts based on what tags are selected. Users will also be able to clear out the tags whenever tags are selected.
+
 ### Scheduling Posts for Future "Publishing"
 
 This blog theme currently allows you to set future "publish"* dates via [ISO-8601 format](https://en.wikipedia.org/wiki/ISO_8601) (i.e., YYYY-MM-DD hh:mm:ss).
