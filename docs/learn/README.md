@@ -387,7 +387,8 @@ module.exports = {
 
 Everything is already configured for favicons on your page. All you need to do is:
 
-1. Use [favicon-generator.org](https://www.favicon-generator.org/) to generate the appropriate files for favicons
+1. Use [Favicon Generator](https://realfavicongenerator.net/) to generate the appropriate files for favicons
+	- And if you're wondering, I just used the default settings for this boilerplate
 2. Replace all the files in `./src/.vuepress/public` and your favicon should just show up!
 
 ::: tip
@@ -396,14 +397,7 @@ In the event you need to manually modify the HTML elements related to favicon ca
 ```js
 module.exports = {
 	head: [
-		[
-			'link',
-			{ 
-				rel: 'apple-touch-icon', 
-				sizes: '57x57', 
-				href: '/apple-icon-57x57.png'
-			}
-		],
+		['link', { rel: 'icon', sizes: '32x32', href: '/favicon-32x32.png' }],
 		...
 	]
 }
