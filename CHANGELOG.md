@@ -6,10 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Added
-- Rerelease tagging feature
+- [#41](https://github.com/bencodezen/vuepress-blog-boilerplate/issues/41) Rerelease tagging feature
 
 ### Changed
-- Improved favicon process
+- [#37](https://github.com/bencodezen/vuepress-blog-boilerplate/issues/37) Improved favicon process
 
 ## [0.11.0-beta]
 - Archived posts page
