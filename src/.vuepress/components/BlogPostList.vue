@@ -32,8 +32,6 @@ export default {
                 return this.pages.filter(item => {
                     const isBlogPost = !!item.frontmatter.blog
                     const isReadyToPublish = new Date(item.frontmatter.date) <= new Date()
-                    // check if tags contain any of the selected tags
-                    // const hasTags = item.frontmatter.tags && item.frontmatter.tags.some(tag => this.selectedTags.includes(tag))
                     // check if tags contain all of the selected tags
                     const hasTags = !!item.frontmatter.tags && this.selectedTags.every((tag) => item.frontmatter.tags.includes(tag))
 
@@ -65,7 +63,11 @@ export default {
             this.currentPage = this.currentPage < 0 ? 0 : this.currentPage - 1
         },
         addTag(tag) {
-            if (!(tag in this.selectedTags)){
+            const tagExists = this.selectedTags.some(item => {
+                return item === tag
+            })
+
+            if (!tagExists){
                 this.selectedTags = this.selectedTags.concat(tag)
             }
         },
@@ -103,6 +105,9 @@ export default {
                     v-show="index >= currentPage * pageSize && index < (currentPage + 1) * pageSize"
                     :item="item"
                 />
+                <ul v-for="tag in item.frontmatter.tags">
+                    <li @click="addTag(tag)">{{ tag }}</li>
+                </ul>
             </li>
         </ul>
 
