@@ -13,10 +13,6 @@ export default {
         startPage: {
             type: Number,
             default: 0
-        },
-        newestFirst: {
-            type: Boolean,
-            default: true
         }
     },
     data() {
