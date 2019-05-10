@@ -105,8 +105,10 @@ export default {
                     v-show="index >= currentPage * pageSize && index < (currentPage + 1) * pageSize"
                     :item="item"
                 />
-                <ul v-for="tag in item.frontmatter.tags">
-                    <li @click="addTag(tag)">{{ tag }}</li>
+                <ul v-for="tag in item.frontmatter.tags" class="blog-list__tags">
+                    <li>
+                        <button @click="addTag(tag)">{{ tag }}</button>
+                    </li>
                 </ul>
             </li>
         </ul>
@@ -138,6 +140,10 @@ export default {
 
 .blog-list__item {
 	list-style-type: none;
+}
+
+.blog-list__tags {
+    margin-bottom: 15px;
 }
 
 .button--pagination {
