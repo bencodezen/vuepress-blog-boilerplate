@@ -356,6 +356,26 @@ module.exports = {
 }
 ```
 
+### Repo
+
+This is your repo link that will be used for features like [Edit this page](https://v1.vuepress.vuejs.org/theme/default-theme-config.html#git-repo-and-edit-links) and the repo link.
+
+This is controlled in `.vuepress/config.js` under `themeConfig`.
+
+```js
+module.exports = {
+	...
+	themeConfig: {
+		...
+		// The URL used for generating any features related to the URL
+		repo: 'https://wwww.github.com',
+		// The label that is used in the top nav
+		repoLabel: 'Repo',
+		...
+	}
+}
+```
+
 ### Google Analytics
 
 Odds are pretty good that you'd like to do some metric tracking for visitors to your blog and such. So luckily it's really easy to add your Google Analytics ID:
