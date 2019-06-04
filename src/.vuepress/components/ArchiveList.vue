@@ -19,12 +19,18 @@ export default {
                 return this.pages.filter(item => {
                     const isBlogPost = !!item.frontmatter.blog
                     const isReadyToPublish = new Date(item.frontmatter.date) <= new Date()
+                    // check for locales
+                    let isCurrentLocale = true;
+                    if(this.$site.locales) {
+                        const localePath = this.$route.path.split('/')[1] || "";
+                        isCurrentLocale = item.relativePath.startsWith(localePath);   
+                    }
                     // check if tags contain any of the selected tags
                     // const hasTags = item.frontmatter.tags && item.frontmatter.tags.some(tag => this.selectedTags.includes(tag))
                     // check if tags contain all of the selected tags
                     const hasTags = !!item.frontmatter.tags && this.selectedTags.every((tag) => item.frontmatter.tags.includes(tag))
 
-                    if (!isBlogPost || !isReadyToPublish || (this.selectedTags.length > 0 && !hasTags)){ 
+                    if (!isBlogPost || !isReadyToPublish || (this.selectedTags.length > 0 && !hasTags) || !isCurrentLocale){ 
                         return false
                     }
 
