@@ -24,7 +24,7 @@ To provide a blueprint of how blogging is possible with [VuePress](https://vuepr
 ### Prerequisites
 
 - [NodeJS >= 8](https://nodejs.org/)
-- [yarn](https://yarnpkg.com/lang/en/docs/install/) (Optional)
+- [yarn](https://yarnpkg.com/lang/en/docs/install/) (Recommended)
 - Basic knowledge of navigating the terminal
 
 ### Installation
@@ -41,10 +41,10 @@ git clone https://github.com/bencodezen/vuepress-blog-boilerplate.git
 cd vuepress-blog-boilerplate
 
 # Install dependencies
-npm install # or yarn
+yarn
 
 # Run local server
-npm run dev # OR yarn dev
+yarn dev
 ```
 
 You should now be able to visit [http://localhost:8080](http://localhost:8080)!
