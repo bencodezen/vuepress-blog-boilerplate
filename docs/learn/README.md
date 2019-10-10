@@ -7,7 +7,7 @@ type: guide
 
 ## Introduction
 
-Welcome to my guide on how to use the [VuePress Blog Boilerplate](https://github.com/bencodezen/vuepress-blog-boilerplate/)! This project was born out of a desire to use [VuePress](https://vuepress.vuejs.org) as my blogging engine and no clear path to do so. 
+Welcome to my guide on how to use the [VuePress Blog Boilerplate](https://github.com/bencodezen/vuepress-blog-boilerplate/)! This project was born out of a desire to use [VuePress](https://vuepress.vuejs.org) as my blogging engine and no clear path to do so.
 
 ### Version
 
@@ -15,7 +15,7 @@ This project is currently at `version {{ $themeConfig.version }}`.
 
 ### Purpose
 
-The objective for this project is simple: 
+The objective for this project is simple:
 
 > To provide a blueprint of how blogging is possible with [VuePress](https://vuepress.vuejs.org/) and empower you with enough boilerplate so you feel comfortable customizing it to your liking.
 
@@ -42,7 +42,7 @@ Piece of cake right? Well time's a wasting, let's get to it!
 
 ### Installation
 
-::: tip 
+::: tip
 If your plan is follow the tutorial all the way through to deployment, make sure you fork this project instead of simply cloning it!
 :::
 
@@ -148,7 +148,7 @@ Odds are you will also want to customize the top navigation with a couple pages 
 ```md
 # About Me
 
-I'm a great developer who has a lot of great things to share with the world. 
+I'm a great developer who has a lot of great things to share with the world.
 Can't wait to start writing more about topics I love and am passionate about!
 ```
 
@@ -204,8 +204,9 @@ module.exports = {
 		]
     },
 ```
+
 ::: warning
-When you want the user to go to the `index.html` of a directory, it's critical that you put a `/` at the end of the relative link because it will break otherwise. 
+When you want the user to go to the `index.html` of a directory, it's critical that you put a `/` at the end of the relative link because it will break otherwise.
 
 ```js
 // Good
@@ -214,6 +215,7 @@ When you want the user to go to the `index.html` of a directory, it's critical t
 // Bad
 { text: 'About', link: '/about' }
 ```
+
 :::
 
 ### Step 4: Deploy your site with Netlify
@@ -224,9 +226,9 @@ When you want the user to go to the `index.html` of a directory, it's critical t
 1. Authorize Netlify to have access to your repos
 1. Choose your VuePress blog repo
 1. Configure the following "Build & deploy" settings:
-    - **Branch to deploy**s: master
-    - **Build command**: `npm run build`
-    - **Publish directory**: `public/`
+   - **Branch to deploy**s: master
+   - **Build command**: `npm run build`
+   - **Publish directory**: `public/`
 1. Click `Deploy site`
 
 Now your site will automatically deploy whenever you push updates to your repo!
@@ -241,7 +243,7 @@ For more advanced blogging features, be sure to check out the rest of the docs!
 
 ### Tags
 
-You can tag your posts in frontmatter now. 
+You can tag your posts in frontmatter now.
 
 Here is an example from:
 
@@ -260,7 +262,7 @@ This will expose your tags in the `BlogPostList.vue` where it will filter down t
 
 ### Scheduling Posts for Future "Publishing"
 
-This blog theme currently allows you to set future "publish"* dates via [ISO-8601 format](https://en.wikipedia.org/wiki/ISO_8601) (i.e., YYYY-MM-DD hh:mm:ss).
+This blog theme currently allows you to set future "publish"\* dates via [ISO-8601 format](https://en.wikipedia.org/wiki/ISO_8601) (i.e., YYYY-MM-DD hh:mm:ss).
 
 ### Time to Read Snippet
 
@@ -309,7 +311,7 @@ By default, VuePress will assume that the h1 in your markdown file is the page t
 # My Heading One That Turns into a Title
 ```
 
-If you would like to explicitly set a specific page title, use frontmatter to overwrite the default. 
+If you would like to explicitly set a specific page title, use frontmatter to overwrite the default.
 
 ```
 ---
@@ -343,16 +345,16 @@ The path to your image is based on `.vuepress/public` directory.
 ```js
 // If your logo is in `.vuepress/public/your-logo.png`
 module.exports = {
-	themeConfig: {
-		logo: '/your-logo.png'
-	}
+  themeConfig: {
+    logo: '/your-logo.png'
+  }
 }
 
 // If your logo is in `.vuepress/public/img/your-logo.png`
 module.exports = {
-	themeConfig: {
-		logo: '/img/your-logo.png'
-	}
+  themeConfig: {
+    logo: '/img/your-logo.png'
+  }
 }
 ```
 
@@ -385,7 +387,7 @@ Odds are pretty good that you'd like to do some metric tracking for visitors to 
 3. Visit the `Admin` section of your account
 4. Look for `Tracking Info` > `Tracking Code`
 5. Copy the tracking ID to the clipboard:
-	- It should look something like `UA-12345678-1`
+   - It should look something like `UA-12345678-1`
 6. Open `./src/.vuepress/config.js` in your favorite text editor
 7. Update the `ga` property with your tracking ID
 
@@ -408,7 +410,7 @@ module.exports = {
 Everything is already configured for favicons on your page. All you need to do is:
 
 1. Use [Favicon Generator](https://realfavicongenerator.net/) to generate the appropriate files for favicons
-	- And if you're wondering, I just used the default settings for this boilerplate
+   - And if you're wondering, I just used the default settings for this boilerplate
 2. Replace all the files in `./src/.vuepress/public` and your favicon should just show up!
 
 ::: tip
@@ -422,6 +424,7 @@ module.exports = {
 	]
 }
 ```
+
 :::
 
 ### Site Repository
@@ -496,7 +499,7 @@ All blog posts are currently expected to live in the `./src/blog` directory in o
 ├── README.md
 ```
 
-::: tip 
+::: tip
 In case you're wondering, `<BlogPostList />` will automatically be sorted by date when the list is generated.
 :::
 
@@ -510,11 +513,11 @@ The `rss.xml` file being generated at build time uses the [VuePress Plugin RSS](
 title: The Post I Want to Add to RSS
 type: post
 ---
-
 # This will not get picked up by the RSS plugin
 ---
 title: The Post I Want to Add to RSS But Will Be Missing
 ---
+
 ```
 
 In addition, I've configured an additional filter to check for posts that are set to be published in the future. After all, wouldn't that be weird to get a post in your RSS feed update that has a date in the future? :laughing:
@@ -531,21 +534,21 @@ Many are probably wondering why use VuePress? After all, there are a ton of tool
 - Use Vue components in your markdown content
 - Develop custom themes with Vue
 - Integrated markdown extensions that make the writing experience even easier. Examples include:
-    - [Custom containers](https://vuepress.vuejs.org/guide/markdown.html#custom-containers)
-    - [Code syntax highlighting](https://vuepress.vuejs.org/guide/markdown.html#line-highlighting-in-code-blocks)
+  - [Custom containers](https://vuepress.vuejs.org/guide/markdown.html#custom-containers)
+  - [Code syntax highlighting](https://vuepress.vuejs.org/guide/markdown.html#line-highlighting-in-code-blocks)
 
-And since it seemed like this was something other people wanted to do, I figured I would go ahead and see how far I could take this. 
+And since it seemed like this was something other people wanted to do, I figured I would go ahead and see how far I could take this.
 
 ### Why is this separate from the VuePress repo?
 
 As many of you might have experienced in the past, getting PRs reviewed and integrated into an existing open-source project is fairly difficult to do. And this is by no means the fault of the maintainers, there's just a lot going on and people clamoring for attention. So rather than have my work hidden from the world while it sits in a PR, my goal is to:
 
 1. Keep updating this repo and guide so that people can make use of it and create content
-2. Integrate the latest changes from the core VuePress repo in order to ensure the work is not duplicated 
+2. Integrate the latest changes from the core VuePress repo in order to ensure the work is not duplicated
 3. Submit PRs until this page will become an artifact of the past and everything will live in the core VuePress docs itself.
 
 ## Hat Tip
 
 For those familiar with the [Vue.js](https://www.vuejs.org) ecosystem, you might be reminded of [Chris Fritz's](https://www.twitter.com/chrisvfritz) [Vue Enterprise Boilerplate](https://github.com/chrisvfritz/vue-enterprise-boilerplate) and you would be absolutely right. I thought the concept was brilliant and wanted to do something similar for the [VuePress](https://vuepress.vuejs.org) ecosystem since blogging is something that still requires a fair amount of configuration and knowledge in order to get started.
 
-And in case you didn't know, Chris Fritz is one of the core contributors to the incredible [Vue.js docs](https://vuejs.org/v2/guide/) that we are love so much. So if you would like to help support him so he can spend more time on creating awesome content for the Vue.js community, please support him by [becoming a sponsor on Patreon](https://www.patreon.com/chrisvuefritz). 
+And in case you didn't know, Chris Fritz is one of the core contributors to the incredible [Vue.js docs](https://vuejs.org/v2/guide/) that we are love so much. So if you would like to help support him so he can spend more time on creating awesome content for the Vue.js community, please support him by [becoming a sponsor on Patreon](https://www.patreon.com/chrisvuefritz).
