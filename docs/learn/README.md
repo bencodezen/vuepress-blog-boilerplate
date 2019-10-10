@@ -547,6 +547,24 @@ As many of you might have experienced in the past, getting PRs reviewed and inte
 2. Integrate the latest changes from the core VuePress repo in order to ensure the work is not duplicated
 3. Submit PRs until this page will become an artifact of the past and everything will live in the core VuePress docs itself.
 
+### What if I want my home page to be my blog posts rather than the static content?
+
+The page that shows up on the home page (`/src/README.md`) is controlled via its `home` boolean property in the frontmatter. To add in your list of blog posts, you just need to delete this property and copy in the `BlogPostList` component.
+
+```
+<BlogPostList
+  :pages="$site.pages"
+  :page-size="$site.themeConfig.pageSize"
+  :start-page="$site.themeConfig.startPage"
+/>
+```
+
+From there, you can customize the page as you see fit!
+
+::: tip Note
+This is not a perfect solution from a configuration standpoint, but I will make sure this is easier in future interations on the boilerplate!
+:::
+
 ## Hat Tip
 
 For those familiar with the [Vue.js](https://www.vuejs.org) ecosystem, you might be reminded of [Chris Fritz's](https://www.twitter.com/chrisvfritz) [Vue Enterprise Boilerplate](https://github.com/chrisvfritz/vue-enterprise-boilerplate) and you would be absolutely right. I thought the concept was brilliant and wanted to do something similar for the [VuePress](https://vuepress.vuejs.org) ecosystem since blogging is something that still requires a fair amount of configuration and knowledge in order to get started.
