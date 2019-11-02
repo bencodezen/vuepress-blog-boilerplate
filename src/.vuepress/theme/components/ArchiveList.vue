@@ -1,3 +1,19 @@
+<template>
+  <div class="theme-default-content">
+    <div v-for="year in getYears()">
+      <div class="archive-year">{{year}}</div>
+      <div v-for="month in getMonths(year)">
+        <div class="archive-month">{{month | monthToLongName}}</div>
+        <ul class="archive-list">
+          <li v-for="(item, index) in postsByDate(year, month)" class="archive-list__item">
+            {{new Date(item.frontmatter.date).getDate()}} - <router-link :to="item.path">{{item.title}}</router-link>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</template>
+
 <script>
 export default {
     name: 'ArchiveList',
@@ -68,22 +84,6 @@ export default {
     }
 }
 </script>
-
-<template>
-    <div class="archive">
-        <div v-for="year in getYears()">
-            <div class="archive-year">{{year}}</div>
-            <div v-for="month in getMonths(year)">
-                <div class="archive-month">{{month | monthToLongName}}</div>
-                <ul class="archive-list">
-                    <li v-for="(item, index) in postsByDate(year, month)" class="archive-list__item">
-                        {{new Date(item.frontmatter.date).getDate()}} - <router-link :to="item.path">{{item.title}}</router-link>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</template>
 
 <style>
 .archive-list {

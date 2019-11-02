@@ -1,5 +1,4 @@
 ---
 title: Archive
+archive: true
 ---
-
-<ArchiveList :pages="$site.pages" />

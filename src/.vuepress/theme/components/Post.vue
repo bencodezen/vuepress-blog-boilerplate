@@ -1,102 +1,84 @@
 <template>
-  <div class="blog">
-    <div class="blog__header">
-      <p class="publish-date"><time :datetime="$frontmatter.date">{{ publishDate }}</time></p>
-      <p v-if="$page.readingTime">Time to read: {{ $page.readingTime.text }}</p>
-      <h1 class="blog__title">{{ $page.title }}</h1>
-    </div>
+  <div class="theme-default-content">
+    <article>
+      <header class="header">
+        <section>
+          <TagList :tags="$frontmatter.tags" />
+        </section>
+        <h1 class="title">{{ $page.title }}</h1>
+        <template v-if="$page.frontmatter.excerpt">
+          <p class="excerpt">{{ $page.frontmatter.excerpt }}</p>
+        </template>
+        <section>
+          <PostMeta :post="$page" show-updated/>
+        </section>
+      </header>
 
-    <Content class="custom" />
+      <section>
+        <Content class="body" :custom="false"/>
+      </section>
 
-    <div class="page-edit">
-      <div
-        class="edit-link"
-        v-if="editLink"
-      >
-        <a
-          :href="editLink"
-          target="_blank"
-          rel="noopener noreferrer"
-        >{{ editLinkText }}</a>
-        <OutboundLink/>
-      </div>
-      <div
-        class="last-updated"
-        v-if="lastUpdated"
-      >
-        <span class="prefix">{{ lastUpdatedText }}: </span>
-        <time class="time" :datetime="$page.lastUpdated">{{ lastUpdated }}</time>
-      </div>
-    </div>
-
-    <div class="page-nav" v-if="prev || next">
-      <p class="inner">
-        <span
-          v-if="prev"
-          class="prev"
+      <div class="page-edit">
+        <div
+          class="edit-link"
+          v-if="editLink"
         >
-          ←
-          <router-link
+          <a
+            :href="editLink"
+            target="_blank"
+            rel="noopener noreferrer"
+          >{{ editLinkText }}</a>
+          <OutboundLink/>
+        </div>
+      </div>
+
+      <div class="page-nav" v-if="prev || next">
+        <p class="inner">
+          <span
             v-if="prev"
             class="prev"
-            :to="prev.path"
           >
-            {{ prev.title || prev.path }}
-          </router-link>
-        </span>
+            ←
+            <router-link
+              v-if="prev"
+              class="prev"
+              :to="prev.path"
+            >
+              {{ prev.title || prev.path }}
+            </router-link>
+          </span>
 
-        <span
-          v-if="next"
-          class="next"
-        >
-          <router-link
+          <span
             v-if="next"
-            :to="next.path"
+            class="next"
           >
-            {{ next.title || next.path }}
-          </router-link>
-          →
-        </span>
-      </p>
-    </div>
+            <router-link
+              v-if="next"
+              :to="next.path"
+            >
+              {{ next.title || next.path }}
+            </router-link>
+            →
+          </span>
+        </p>
+      </div>
 
-    <slot name="bottom"/>
+      <slot name="bottom"/>
+    </article>
   </div>
 </template>
 
 <script>
+import moment from 'moment'
+import TagList from './TagList'
+import PostMeta from './PostMeta'
 import { resolvePage, normalize, outboundRE, endingSlashRE } from '../util'
 
 export default {
-  name: 'Blog',
-
+  components: { TagList, PostMeta },
   props: ['sidebarItems'],
 
   computed: {
-    lastUpdated () {
-      if (this.$page.lastUpdated) {
-        const dateFormat = new Date(this.$page.lastUpdated)
-
-        const options = {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric'
-        } 
-        
-        return `${dateFormat.toLocaleDateString(this.$lang, options)}, ${dateFormat.toLocaleTimeString(this.$lang)}`
-      }
-    },
-
-    lastUpdatedText () {
-      if (typeof this.$themeLocaleConfig.lastUpdated === 'string') {
-        return this.$themeLocaleConfig.lastUpdated
-      }
-      if (typeof this.$site.themeConfig.lastUpdated === 'string') {
-        return this.$site.themeConfig.lastUpdated
-      }
-      return 'Last Updated'
-    },
-
     prev () {
       const prev = this.$page.frontmatter.prev
       if (prev === false) {
@@ -149,17 +131,6 @@ export default {
         `Edit this page`
       )
     },
-
-    publishDate() {
-        const dateFormat = new Date(this.$frontmatter.date)
-        const options = {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric'
-        } 
-        
-        return dateFormat.toLocaleDateString(this.$lang, options)
-    }
   },
 
   methods: {
@@ -218,29 +189,30 @@ function find (page, items, offset) {
 }
 </script>
 
+<style lang="stylus">
+.body
+  margin-bottom 3rem
+</style>
+
 <style lang="stylus" scoped>
-@import '../styles/config.styl'
-@require '../styles/wrapper.styl'
 
-.blog {
-  @extend $wrapper
-}
+.header
+  padding-bottom 1.5rem
+  margin-bottom 1.5rem
 
-.blog__header {
-  padding-top: 4.6rem;
-}
+.title
+  font-size 3.2rem
+  margin 0 0 .4em
+  margin-bottom .5rem
 
-.blog__title {
-  margin-top: 0;
-}
-
-.publish-date {
-  margin-bottom: 0.5rem;
-  font-family: 'Poppins';
-}
+.excerpt
+  font-size 1.2rem
+  color lighten($textColor, 25%)
+  margin 0 0 .5em
+  line-height 1.4em
+  margin-bottom 1rem
 
 .page-edit
-  @extend $wrapper
   padding-top 1rem
   padding-bottom 1rem
   padding-left 0
@@ -250,28 +222,7 @@ function find (page, items, offset) {
     display inline-block
     a
       color lighten($textColor, 25%)
-      margin-right 0.25rem
-  .last-updated
-    float right
-    font-size 0.9em
-    .prefix
-      font-weight 500
-      color lighten($textColor, 25%)
-    .time
-      font-weight 400
-      color #aaa
-
-.page-nav
-  padding-top 1rem
-  padding-bottom 0
-  .inner
-    min-height 2rem
-    margin-top 0
-    border-top 1px solid $borderColor
-    padding-top 1rem
-    overflow auto // clear float
-  .next
-    float right
+      margin-right .25rem
 
 @media (max-width: $MQMobile)
   .page-edit
@@ -283,7 +234,7 @@ function find (page, items, offset) {
       text-align left
 
 @media (max-width: $MQMobileNarrow) {
-  .blog__title {
+  .title {
     font-size: 2.441rem;
   }
 }

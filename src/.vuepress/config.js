@@ -17,7 +17,8 @@ module.exports = {
 		logo: '/vuepress-blog-logo.png',
 		docsDir: 'src',
 		pageSize: 5,
-		startPage: 0
+		startPage: 0,
+		lastUpdated: 'Last updated'
 	},
 	plugins: [
 		[

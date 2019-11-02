@@ -1,6 +1,57 @@
+<template>
+	<div class="theme-default-content">  
+    <div 
+      v-if="selectedTags.length > 0"
+      class="filtered-heading"
+    >
+      <h2>Filtered by {{ selectedTags.join(',') }}</h2>
+      <button
+        type="button"
+        @click="resetTags"
+        class="btn clear-filter-btn"
+      >
+        Clear filter
+      </button>
+    </div>
+    <ul class="blog-list">
+      <li v-for="(item, index) in filteredList"
+        class="blog-list__item">
+        <PostPreview v-on:add-tag="addTag($event)"
+          v-show="index >= currentPage * pageSize && index < (currentPage + 1) * pageSize"
+          :item="item"
+          v-on:tag-click="console.log($event)"
+        />
+      </li>
+    </ul>
+
+    <div class="pagination">
+      <div>
+        <a href="#"
+          v-show="currentPage > 0" 
+          @click="previousPage"
+          class="button--pagination" 
+        >
+          Newer Posts
+        </a>
+      </div>
+      <div>
+        <a href="#"
+          v-show="currentPage < totalPages - 1"
+          @click="nextPage"
+          class="button--pagination"
+        >
+          Older Posts
+        </a>
+      </div>
+    </div>
+  </div>
+</template>
+
 <script>
+import PostPreview from './PostPreview'
+
 export default {
-    name: 'BlogPostList',
+    components: { PostPreview },
     props: {
         pages: {
             type: Array,
@@ -83,100 +134,32 @@ export default {
 }
 </script>
 
-<template>
-	<div>  
-        <div 
-            v-if="selectedTags.length > 0"
-            class="filtered-heading"
-        >
-            <h2>
-                Filtered by {{ selectedTags.join(',') }}
-            </h2>
-            <button
-                type="button"
-                @click="resetTags"
-                class="btn clear-filter-btn"
-            >
-                Clear filter
-            </button>
-        </div>
-        <ul class="blog-list">
-            <li v-for="(item, index) in filteredList"
-                class="blog-list__item">
-                <BlogPostPreview 
-                    v-show="index >= currentPage * pageSize && index < (currentPage + 1) * pageSize"
-                    :item="item"
-                />
-                <ul v-for="tag in item.frontmatter.tags" class="blog-list__tags">
-                    <li>
-                        <button @click="addTag(tag)">{{ tag }}</button>
-                    </li>
-                </ul>
-            </li>
-        </ul>
+<style lang="stylus" scoped>
+.blog-list
+    padding 0
+    margin 0
 
-        <div class="pagination">
-            <button v-show="currentPage > 0" 
-                @click="previousPage"
-                class="button--pagination"
-                type="button" 
-            >
-                Previous
-            </button>
-            <button v-show="currentPage < totalPages - 1"
-                @click="nextPage"
-                class="button--pagination"
-                type="button"
-            >
-                Next
-            </button>
-        </div>
-    </div>
-</template>
+.blog-list__item
+    list-style-type none
 
-<style scoped>
-.blog-list {
-	padding: 0;
-	margin: 0;
-}
+.blog-list__tags
+    margin-bottom 15px
 
-.blog-list__item {
-	list-style-type: none;
-}
+.button--pagination
+    text-decoration none
+    color lighten($textColor, 25%)
+    &:hover
+        text-decoration none !important
+        border-bottom 2px solid $accentColor
 
-.blog-list__tags {
-    margin-bottom: 15px;
-}
+.clear-filter-btn
+    align-self center
+    margin-left 20px
 
-.button--pagination {
-	background-color: #32c8cf;
-	border-radius: 4px;
-	color: #fff;
-	font-size: 0.8rem;
-	padding: 0.5rem 0.75rem;
-	text-transform: uppercase;
-	font-weight: 700;
-	box-shadow: 0 0;
-	transition: background-color 0.2s ease-in, color 0.2s ease-in;
-}
+.filtered-heading
+    display flex
 
-.button--pagination:hover {
-    background-color: #fff;
-    border: 1px solid #32c8cf;
-    border-radius: 4px;
-    color: #32c8cf;
-}
-
-.clear-filter-btn {
-    align-self: center;
-    margin-left: 20px;
-}
-
-.filtered-heading {
-    display: flex;
-}
-
-.pagination {
-    text-align: center;
-}
+.pagination
+    display flex
+    justify-content space-between
 </style>

@@ -9,7 +9,9 @@
 		"build": "vuepress build src",
 		"build:docs": "vuepress build docs"
 	},
-	"dependencies": {},
+	"dependencies": {
+		"moment": "^2.24.0"
+	},
 	"devDependencies": {
 		"@vuepress/plugin-google-analytics": "^1.0.0-alpha.0",
 		"vuepress": "^1.0.0-alpha.30",
