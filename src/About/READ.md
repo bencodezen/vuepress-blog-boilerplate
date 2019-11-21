@@ -1,16 +1,4 @@
----
-title: My First Post
-date: 2018-12-23 20:47:18
-excerpt: Here is a little bit about my post.
-type: post
-blog: true
-tags:
-    - HTML
-    - CSS
-    - JavaScript
----
-
-## Hello My Name is Zahed Hossain
+# About Me
 
 I am a consultant, director, and web developer at Zain Global currently living in Chittagong, Bangladesh. My interests range from entrepreneurship to programming. I am also interested in web development, fashion, and education.
 
