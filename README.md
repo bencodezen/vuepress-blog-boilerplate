@@ -8,6 +8,10 @@ This is a **deprecated** opinionated architecture that uses [VuePress v1.0.0-alp
 
 To provide a blueprint of how blogging is possible with [VuePress v1.0.0-alpha](https://vuepress.vuejs.org/) and empower you with enough boilerplate so you feel comfortable customizing it to your liking.
 
+## Why is it deprecated?
+
+As my work with OSS expands, I wanted the flexibility to switch tech stacks as the requirements for my own blog / site requirements increase. As a result, I do not have the time to maintain this one since it would be a separate effort from my current OSS work.
+
 ## Features
 
 - Write posts in Markdown
