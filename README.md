@@ -1,12 +1,12 @@
-# VuePress Blog Boilerplate
+# VuePress Blog Boilerplate (Deprecated)
 
-[![Version](https://img.shields.io/badge/version-0.11.0--beta-orange.svg)](https://github.com/vuejs/events/blob/master/CHANGELOG.md) [![Netlify Status](https://api.netlify.com/api/v1/badges/de71217a-c091-4908-a913-d6415815c92d/deploy-status)](https://app.netlify.com/sites/vuepress-blog-boilerplate/deploys)
+![Status: Deprecated](https://img.shields.io/badge/status-deprecated-orange) [![Version](https://img.shields.io/badge/version-1.0.0-green.svg)](https://github.com/bencodezen/vuepress-blog-boilerplate/blob/master/CHANGELOG.md) [![Netlify Status](https://api.netlify.com/api/v1/badges/de71217a-c091-4908-a913-d6415815c92d/deploy-status)](https://app.netlify.com/sites/vuepress-blog-boilerplate/deploys)
 
-This is an ever-changing and opinionated architecture that uses [VuePress](https://vuepress.vuejs.org) to power your blogging platform.
+This is a **deprecated** opinionated architecture that uses [VuePress v1.0.0-alpha](https://vuepress.vuejs.org) to power a blogging platform.
 
 ## Purpose
 
-To provide a blueprint of how blogging is possible with [VuePress](https://vuepress.vuejs.org/) and empower you with enough boilerplate so you feel comfortable customizing it to your liking.
+To provide a blueprint of how blogging is possible with [VuePress v1.0.0-alpha](https://vuepress.vuejs.org/) and empower you with enough boilerplate so you feel comfortable customizing it to your liking.
 
 ## Features
 
@@ -23,7 +23,7 @@ To provide a blueprint of how blogging is possible with [VuePress](https://vuepr
 
 ### Prerequisites
 
-- [NodeJS >= 8](https://nodejs.org/)
+- [NodeJS 12](https://nodejs.org/)
 - [yarn](https://yarnpkg.com/lang/en/docs/install/) (Recommended)
 - Basic knowledge of navigating the terminal
 
@@ -62,4 +62,4 @@ To check out the tutorial and docs, check out [the guide](https://vuepress-blog-
 
 For those familiar with the [Vue.js](https://www.vuejs.org) ecosystem, you might be reminded of [Chris Fritz's](https://www.twitter.com/chrisvfritz) [Vue Enterprise Boilerplate](https://github.com/chrisvfritz/vue-enterprise-boilerplate) and you would be absolutely right. I thought the concept was brilliant and wanted to do something similar for the [VuePress](https://vuepress.vuejs.org) ecosystem since blogging is something that still requires a fair amount of configuration and knowledge in order to get started.
 
-And in case you didn't know, Chris Fritz is one of the core contributors to the incredible [Vue.js docs](https://vuejs.org/v2/guide/) that we all love so much. So if you would like to help support him so he can spend more time on creating awesome content for the Vue.js community, please support him by [becoming a sponsor on Patreon](https://www.patreon.com/chrisvuefritz). 
+And in case you didn't know, Chris Fritz is one of the core contributors to the incredible [Vue.js docs](https://vuejs.org/v2/guide/) that we all love so much. So if you would like to help support him so he can spend more time on creating awesome content for the Vue.js community, please support him by [becoming a sponsor on Patreon](https://www.patreon.com/chrisvuefritz).
