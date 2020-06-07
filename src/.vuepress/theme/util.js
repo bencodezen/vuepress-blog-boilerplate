@@ -195,6 +195,17 @@ export function resolveMatchingConfig(route, config) {
 	return {}
 }
 
+export function formatPublishDate(date) {
+	const dateFormat = new Date(date)
+	const options = {
+	  year: 'numeric',
+	  month: 'short',
+	  day: 'numeric'
+	} 
+
+	return dateFormat.toLocaleDateString('en-US', options)
+}
+
 function ensureEndingSlash(path) {
 	return /(\.html|\/)$/.test(path) ? path : path + '/'
 }

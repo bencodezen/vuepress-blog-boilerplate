@@ -19,73 +19,71 @@
       :items="sidebarItems"
       @toggle-sidebar="toggleSidebar"
     >
-      <slot
-        name="sidebar-top"
-        slot="top"
-      />
-      <slot
-        name="sidebar-bottom"
-        slot="bottom"
-      />
+      <template #top>
+        <slot name="sidebar-top" />
+      </template>
+      <template #bottom>
+        <slot name="sidebar-bottom"/>
+      </template>
     </Sidebar>
 
-    <Blog 
-      v-if="$page.frontmatter.blog" 
-      :sidebar-items="sidebarItems"
+    <Home v-if="$page.frontmatter.home"/>
+
+    <Blog
+      v-else-if="$page.frontmatter.blogList"
+      :pages="$site.pages" 
+      :page-size="$site.themeConfig.pageSize" 
+      :start-page="$site.themeConfig.startPage" 
     />
 
-    <div
-      class="custom-layout"
-      v-else-if="$page.frontmatter.layout"
-    >
-      <component :is="$page.frontmatter.layout"/>
-    </div>
+    <ArchiveList
+      v-else-if="$page.frontmatter.archive"
+      :pages="$site.pages"
+    />
 
-    <Home v-else-if="$page.frontmatter.home"/>
+    <Post 
+      v-else-if="$page.frontmatter.blog" 
+      :sidebar-items="sidebarItems"
+    />
 
     <Page
       v-else
       :sidebar-items="sidebarItems"
     >
-      <slot
-        name="page-top"
-        slot="top"
-      />
-      <slot
-        name="page-bottom"
-        slot="bottom"
-      />
+      <template #top>
+        <slot name="page-top"/>
+      </template>
+      <template #bottom>
+        <slot name="page-bottom"/>
+      </template>
     </Page>
-
-    <SWUpdatePopup :updateEvent="swUpdateEvent"/>
   </div>
 </template>
 
 <script>
-import Vue from 'vue'
-import nprogress from 'nprogress'
-import Blog from './layout/Blog.vue'
-import Home from './layout/Home.vue'
-import Page from './layout/Page.vue'
-import Navbar from './components/Navbar.vue'
-import Sidebar from './components/Sidebar.vue'
-import SWUpdatePopup from './components/SWUpdatePopup.vue'
-import { resolveSidebarItems } from './util'
+import Home from '@parent-theme/components/Home.vue'
+import Navbar from '@parent-theme/components/Navbar.vue'
+import Page from '@parent-theme/components/Page.vue'
+import Sidebar from '@parent-theme/components/Sidebar.vue'
+import Post from '../components/Post.vue'
+import Blog from '../components/Blog.vue'
+import ArchiveList from '../components/ArchiveList.vue'
+import { resolveSidebarItems } from '@parent-theme/util'
 
 export default {
-  components: { 
+  components: {
+    Home,
+    Page,
     Blog,
-    Home, 
-    Page, 
-    Sidebar, 
-    Navbar, 
-    SWUpdatePopup 
+    ArchiveList,
+    Post,
+    Sidebar,
+    Navbar
   },
 
   data () {
     return {
-      isSidebarOpen: false,
-      swUpdateEvent: null
+      isSidebarOpen: false
     }
   },
 
@@ -94,33 +92,32 @@ export default {
       const { themeConfig } = this.$site
       const { frontmatter } = this.$page
       if (
-        frontmatter.navbar === false ||
-        themeConfig.navbar === false) {
+        frontmatter.navbar === false
+        || themeConfig.navbar === false) {
         return false
       }
       return (
-        this.$title ||
-        themeConfig.logo ||
-        themeConfig.repo ||
-        themeConfig.nav ||
-        this.$themeLocaleConfig.nav
+        this.$title
+        || themeConfig.logo
+        || themeConfig.repo
+        || themeConfig.nav
+        || this.$themeLocaleConfig.nav
       )
     },
 
     shouldShowSidebar () {
       const { frontmatter } = this.$page
       return (
-        !frontmatter.layout &&
-        !frontmatter.home &&
-        frontmatter.sidebar !== false &&
-        this.sidebarItems.length
+        !frontmatter.home
+        && frontmatter.sidebar !== false
+        && this.sidebarItems.length
       )
     },
 
     sidebarItems () {
       return resolveSidebarItems(
         this.$page,
-        this.$route,
+        this.$page.regularPath,
         this.$site,
         this.$localePath
       )
@@ -140,29 +137,15 @@ export default {
   },
 
   mounted () {
-    window.addEventListener('scroll', this.onScroll)
-
-    // configure progress bar
-    nprogress.configure({ showSpinner: false })
-
-    this.$router.beforeEach((to, from, next) => {
-      if (to.path !== from.path && !Vue.component(to.name)) {
-        nprogress.start()
-      }
-      next()
-    })
-
     this.$router.afterEach(() => {
-      nprogress.done()
       this.isSidebarOpen = false
     })
-
-    this.$on('sw-updated', this.onSWUpdated)
   },
 
   methods: {
     toggleSidebar (to) {
       this.isSidebarOpen = typeof to === 'boolean' ? to : !this.isSidebarOpen
+      this.$emit('toggle-sidebar', this.isSidebarOpen)
     },
 
     // side swipe
@@ -183,14 +166,7 @@ export default {
           this.toggleSidebar(false)
         }
       }
-    },
-
-    onSWUpdated (e) {
-      this.swUpdateEvent = e
     }
   }
 }
 </script>
-
-<style src="prismjs/themes/prism-tomorrow.css"></style>
-<style src="./styles/theme.styl" lang="stylus"></style>
