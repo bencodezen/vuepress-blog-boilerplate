@@ -12,6 +12,8 @@ To provide a blueprint of how blogging is possible with [VuePress v1.0.0-alpha](
 
 As my work with OSS expands, I wanted the flexibility to switch tech stacks as the requirements for my own blog / site requirements increase. As a result, I do not have the time to maintain this one since it would be a separate effort from my current OSS work.
 
+To follow the latest, you can follow the new repo at [Ben's Blog Boilerplate](https://github.com/bencodezen/bens-blog-boilerplate).
+
 ## Features
 
 - Write posts in Markdown
